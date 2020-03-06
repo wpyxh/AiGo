@@ -56,8 +56,9 @@
 						this.$toast.show("账号或密码错误")
 					}else{//登录成功
 						//把账号发给vuex
-						this.$store.commit('userName',this.singInusername)
-						
+						//this.$store.commit('userName',this.singInusername)
+						//把账号存储到本地session Storage
+						sessionStorage.setItem('username',this.singInusername);
 						
 						this.$refs.username.value=""
 						this.$refs.password.value=""

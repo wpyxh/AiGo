@@ -78,10 +78,10 @@ export default {
   },
   computed:{
   	username(){
-				if(this.$store.state.username){
-					return this.$store.state.username
+				if(!sessionStorage.getItem("username")){
+					return this.userStatus
 				}else{
-					return this.userStatus;
+					return sessionStorage.getItem("username")
 				}
 			}
   }

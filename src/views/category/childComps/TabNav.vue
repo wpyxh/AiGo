@@ -36,12 +36,18 @@ export default{
 				this.$router.back();
 		},
 		singIn(){
-			this.$router.push("/singin")
+			if(!sessionStorage.getItem("username")){
+ 				this.$router.push('/singin');
+ 			}else{
+ 				sessionStorage.removeItem('username');
+ 				this.state='登录'
+ 				this.$toast.show("退出成功");
+ 			}
 		}
  },
   computed:{
  	singState(){
- 		if(this.$store.state.username==''){
+ 		if(!sessionStorage.getItem("username")){
  			this.state='登录'
  			return this.state
  		}else{

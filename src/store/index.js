@@ -6,7 +6,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
 	state:{
 		carData:[],
-		username:''
+		//username:''
 	},
 	mutations:{
 		addCount(state,goodsData){
@@ -22,13 +22,13 @@ const store = new Vuex.Store({
 			//删除商品
 			state.carData.splice(index,1);
 		},
-		userName(state,username){
-			//接收登录账号
-			state.username=username;
-		},
-		changeSing(state){
-			state.username='';
-		}
+//		userName(state,username){
+//			//接收登录账号
+//			state.username=username;
+//		},
+//		changeSing(state){
+//			state.username='';
+//		}
 	},
 	actions:{
 		addCar(context,goodsData){

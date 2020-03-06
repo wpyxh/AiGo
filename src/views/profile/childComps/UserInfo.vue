@@ -33,9 +33,9 @@
 		},
 		methods:{
 			singIn(){
-				if(!this.$store.state.username){
-					this.$router.push("/singin")
-				}else{
+			if(!sessionStorage.getItem("username")){
+ 				this.$router.push('/singin');
+ 			}else{
 					return false;
 				}
 			},
@@ -55,10 +55,10 @@
 		},
 		computed:{
 			username(){
-				if(this.$store.state.username){
-					return this.$store.state.username
-				}else{
+				if(!sessionStorage.getItem("username")){
 					return this.singin;
+				}else{
+					return sessionStorage.getItem("username")
 			}
 			}
 		}

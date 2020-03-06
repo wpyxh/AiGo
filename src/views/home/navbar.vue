@@ -36,10 +36,11 @@ export default{
  			this.$router.push('/category');
  		},
  		singin(){
- 			if(this.$store.state.username==''){
+ 			if(!sessionStorage.getItem("username")){
  				this.$router.push('/singin');
  			}else{
- 				this.$store.commit("changeSing");
+ 				sessionStorage.removeItem('username');
+ 				this.state='登录'
  				this.$toast.show("退出成功");
  			}
  			
@@ -47,7 +48,7 @@ export default{
  },
  computed:{
  	singState(){
- 		if(this.$store.state.username==''){
+ 		if(!sessionStorage.getItem("username")){
  			this.state='登录'
  			return this.state
  		}else{
